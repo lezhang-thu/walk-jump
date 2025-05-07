@@ -20,11 +20,14 @@ class AbDataModule(LightningDataModule):
 
     dataset: pd.DataFrame = field(init=False)
     alphabet: LabelEncoder = field(init=False, default=ALPHABET_AHO)
+    prepare_data_per_node: bool = False
+    _log_hyperparams: bool = False
 
     def setup(self, stage: str):
         match stage:
             case "fit" | "validate" | "test":
-                self.dataset = pd.read_csv(self.csv_data_path, compression="gzip")
+                #self.dataset = pd.read_csv(self.csv_data_path, compression="gzip")
+                self.dataset = pd.read_csv(self.csv_data_path)
             case _:
                 raise ValueError(f"Unreognized 'stage': {stage}")
 

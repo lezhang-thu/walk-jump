@@ -6,6 +6,7 @@ accumulate_grad_batches: 1
 gradient_clip_val: 0.0
 gradient_clip_algorithm: norm
 precision: 32
-max_epochs: 20
+#max_epochs: 20
+max_epochs: 1 
 max_steps: -1
 val_check_interval: 0.99
