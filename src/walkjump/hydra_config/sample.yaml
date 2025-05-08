@@ -4,9 +4,10 @@ defaults:
 
 model:
   _target_: walkjump.cmdline.utils.instantiate_model_for_sample_mode
-  model_type: denoise
-  checkpoint_path: ???
-  denoise_path: null
+  _args_:
+    - model_type: denoise
+      checkpoint_path: /home/ubuntu/lezhang.thu/biology-research/dWJS/walk-jump/checkpoints-antibody-Epoch-231-early-stop-500-133-122/last.ckpt
+      denoise_path: null
 
 langevin:
   sigma: 1.0
@@ -21,6 +22,8 @@ designs:
   redesign_regions: null
   seeds: denovo
   num_samples: 100
-  limit_seeds: 10
+  #limit_seeds: 10
+  limit_seeds: 700
 
 device: null
+dryrun: false

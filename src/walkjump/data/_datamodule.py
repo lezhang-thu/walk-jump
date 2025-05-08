@@ -46,7 +46,10 @@ class AbDataModule(LightningDataModule):
         return self._make_dataloader("train")
 
     def val_dataloader(self) -> DataLoader:
-        return self._make_dataloader("val")
+        # debug
+        #return self._make_dataloader("val")
+        return self._make_dataloader("train")
 
     def test_dataloader(self) -> DataLoader:
-        return self._make_dataloader("test")
+        #return self._make_dataloader("test")
+        return self._make_dataloader("train")

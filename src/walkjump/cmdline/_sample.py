@@ -28,6 +28,7 @@ def sample(cfg: DictConfig) -> bool:
     seeds = instantiate_seeds(cfg.designs)
 
     if not cfg.dryrun:
+        print(cfg.model)
         model = hydra.utils.instantiate(cfg.model).to(device)
         sample_df = walkjump(
             seeds,
@@ -38,7 +39,8 @@ def sample(cfg: DictConfig) -> bool:
             steps=cfg.langevin.steps,
             num_samples=cfg.designs.num_samples,
             mask_idxs=mask_idxs,
-            chunksize=cfg.designs.chunksize,
+            #chunksize=cfg.designs.chunksize,
+            chunksize=8,
         )
         sample_df.drop_duplicates(subset=["fv_heavy_aho", "fv_light_aho"], inplace=True)
         print(f"Writing {len(sample_df)} samples to {cfg.designs.output_csv}")

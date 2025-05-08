@@ -1,5 +1,6 @@
 _target_: walkjump.data.AbDataModule
 
-csv_data_path: /home/ubuntu/lezhang.thu/biology-research/dWJS/walk-jump/data/poas.csv
+#csv_data_path: /home/ubuntu/lezhang.thu/biology-research/dWJS/walk-jump/data/poas.csv
+csv_data_path: /home/ubuntu/lezhang.thu/biology-research/dWJS/walk-jump/data/antibody_ref_padded_with_partition-133-122.csv
 batch_size: 64
 num_workers: 1
